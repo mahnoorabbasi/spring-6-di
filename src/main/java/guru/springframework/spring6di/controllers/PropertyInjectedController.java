@@ -1,24 +1,20 @@
 package guru.springframework.spring6di.controllers;
 
 import guru.springframework.spring6di.services.GreetingService;
-import guru.springframework.spring6di.services.GreetingServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 /**
  * Created by jt, Spring Framework Guru.
  */
 @Controller
-public class MyController {
+public class PropertyInjectedController {
 
-    private final GreetingService greetingService;
-
-    public MyController() {
-        this.greetingService = new GreetingServiceImpl();
-    }
+    @Autowired
+    GreetingService greetingService;
 
     public String sayHello(){
-        System.out.println("I'm in the controller");
-
         return greetingService.sayGreeting();
     }
+
 }
