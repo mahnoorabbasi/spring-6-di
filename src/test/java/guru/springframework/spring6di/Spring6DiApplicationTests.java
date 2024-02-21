@@ -8,21 +8,22 @@ import org.springframework.context.ApplicationContext;
 
 @SpringBootTest
 class Spring6DiApplicationTests {
+
     @Autowired
     ApplicationContext applicationContext;
 
-    //can also test directyl the controller
     @Autowired
     MyController myController;
 
     @Test
-    void testAutoWireOfController(){
+    void testAutowireOfController() {
         System.out.println(myController.sayHello());
     }
 
     @Test
-    void testGetControllerFromCtx(){
-        MyController myController=applicationContext.getBean(MyController.class);
+    void testGetControllerFromCtx() {
+        MyController myController = applicationContext.getBean(MyController.class);
+
         System.out.println(myController.sayHello());
     }
 
